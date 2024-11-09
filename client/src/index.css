@@ -1,0 +1,15 @@
+  
+  .bgc{
+    background-color: brown
+  }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities{
+    .bt{
+        @apply  hover:rounded-2xl  hover:bg-purple-600  hover:text-white active:bg-purple-500  focus:bg-black focus:text-white focus:outline-4 focus:outline-red-700;
+        
+        }
+}

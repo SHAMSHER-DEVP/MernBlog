@@ -1,5 +1,5 @@
   import exp from 'express'
-import dbConnect from '../DB/dbConnect.js';
+import dbConnect from './DB/dbConnect.js';
 
   let app=exp();
   let port=process.env.PORT || 6000;

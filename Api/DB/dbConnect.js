@@ -1,5 +1,7 @@
 import { connect } from "mongoose";
+
 import dotenv from 'dotenv'
+import  "../Models/user.model.js";
 dotenv.config();
 let dbConnect=async(url)=>{
     try {
@@ -9,7 +11,7 @@ let dbConnect=async(url)=>{
 
          }
         //  let uri ="mongodb+srv://shamsheralidev:dxdiag55@mern-blog.4pgjm.mongodb.net/mern-blog?retryWrites=true&w=majority&appName=mern-blog&serverSelectionTimeoutMS=5000";
-        await connect(url);
+        await connect(url,opt);
         console.log('the connection successfully...');
     } catch (error) {
         console.log('the error is = ',error.message); 

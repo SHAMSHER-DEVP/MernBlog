@@ -11,14 +11,15 @@ function Header() {
           <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md text-white'>Shamsher's </span> 
                  Blog
         </Link>
-        <form action="" > 
+        <form action="" className='lg:w-80 ' > 
+            
             <TextInput
             type='text'
             placeholder='Search...'
             rightIcon={AiOutlineSearch} 
-            className='hidden lg:inline group-hover:border-red-800' 
-            
+            className='hidden lg:inline '  
             />
+            
         </form>
         <Button  className='w-12 h-10 lg:hidden flex items-center ' color='gray' pill  > <AiOutlineSearch/>   </Button>
         <div  className='flex gap-2 md:order-2 '>
@@ -28,6 +29,7 @@ function Header() {
          <Link to={""} > 
          <Button
          gradientDuoTone='purpleToBlue' 
+         outline
          >
             Sign In 
          </Button>

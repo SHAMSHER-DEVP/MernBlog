@@ -1,0 +1,20 @@
+{
+  "name": "mern-blog",
+  "version": "1.0.0",
+  "main": "Api/index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node Api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

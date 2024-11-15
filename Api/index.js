@@ -1,6 +1,8 @@
   import exp from 'express'
 import dbConnect from './DB/dbConnect.js';
 import rt from './routers/route.js';
+import { erMd } from './middleware/errorMiddleware.js';
+
 
   let app=exp();
   let port=process.env.PORT || 6000;
@@ -9,15 +11,7 @@ import rt from './routers/route.js';
   app.use('/api',rt);
 
     //  error handle middleware ::
-    app.use((err,req,res,next)=>{
-      let statusCode=err.statusCode || 500;
-      let message =   err.message || "internal server error ";
-      res.status(statusCode).json({  
-        success:false,
-        statusCode,
-        message
-      })
-    });
+    app.use(erMd);
   dbConnect(url);
  app.listen(port,()=>{
     console.log('the server is running at the port :: http://localhost:'+port);

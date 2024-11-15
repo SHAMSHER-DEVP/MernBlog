@@ -7,6 +7,17 @@ import rt from './routers/route.js';
   let url=process.env.Db_url;
   app.use(exp.json());
   app.use('/api',rt);
+
+    //  error handle middleware ::
+    app.use((err,req,res,next)=>{
+      let statusCode=err.statusCode || 500;
+      let message =   err.message || "internal server error ";
+      res.status(statusCode).json({  
+        success:false,
+        statusCode,
+        message
+      })
+    });
   dbConnect(url);
  app.listen(port,()=>{
     console.log('the server is running at the port :: http://localhost:'+port);

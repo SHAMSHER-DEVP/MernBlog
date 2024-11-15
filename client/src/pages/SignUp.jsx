@@ -1,8 +1,32 @@
 import { Button, Label, TextInput } from 'flowbite-react'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function SignUp() {
+
+    let [formData,setFormData]=useState({});
+
+    let handleChange=(e)=>{
+      let {id,value}=e.target;
+      setFormData({...formData,[id]:value});
+
+      console.log('changes = ',formData);
+    }
+
+    let handleSubmit=async(e)=>{
+      e.preventDefault();
+           let res=await fetch("/api/signup",{
+            method:"post",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(formData)
+           });
+
+           let data= await  res.json();
+          //  console.log(data);
+
+
+        console.log(formData);
+    }
   return (
     <>
      <div className="min-h-screen mt-20">
@@ -24,18 +48,18 @@ function SignUp() {
         </div>
         {/* right */}
         <div className="right  flex-1">
-          <form action="" className='flex flex-col gap-4'>
+          <form action="" className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div> 
               <Label value='Your username' />
-              <TextInput type='text' placeholder='username' id='username' value={''}/>
+              <TextInput type='text' placeholder='username' id='username'  onChange={handleChange} />
                </div>
             <div> 
               <Label value='Your user-email' />
-              <TextInput type='email' placeholder='user-email' id='email' value={''}/>
+              <TextInput type='email' placeholder='user-email' id='email'  onChange={handleChange} />
                </div>
             <div> 
               <Label value='Your user-password' />
-              <TextInput type='password' placeholder='password' id='password' value={''}/>
+              <TextInput type='password' placeholder='password' id='password'  onChange={handleChange} />
                </div>
                
                <Button gradientDuoTone='purpleToPink' type='submit'  >Sign Up </Button>

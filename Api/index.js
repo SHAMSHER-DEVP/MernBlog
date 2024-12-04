@@ -17,3 +17,5 @@ import cros from 'cros'
  app.listen(port,()=>{
     console.log('the server is running at the port :: http://localhost:'+port);
  })
+//  "client": "cd client && npm run start",
+//     "dev": "concurrently \"npm run server \" \"npm run  client\""

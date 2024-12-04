@@ -1,10 +1,11 @@
 {
   "name": "mern-blog",
   "version": "1.0.0",
-  "main": "Api/index.js",
+  "main": "api/index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node Api/index.js"
+    "start": "nodemon Api/index.js",
+    "client": "cd client && npm run start",
+    "dev": "concurrently \"npm run server \" \"npm run  client\""
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
   "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^9.1.0",
     "cros": "^1.0.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
